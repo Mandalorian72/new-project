@@ -4,7 +4,7 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
 public interface ConfigProvider {
-    // данный интерфейс гнужен для чтения файлов конфигурации
+    // данный интерфейс нужен для чтения файлов конфигурации
     Config config = readConfig();
 
     static Config readConfig() {

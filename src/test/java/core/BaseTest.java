@@ -12,7 +12,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 abstract public class BaseTest {
 
-    public void setUp() {
+    /**
+     * Выполнение метода перед каждым запуском тестов
+     */
+    @BeforeEach
+    public void init(){
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         //Configuration.driverManagerEnable = true; - не нашел библиотеку для этой команды
@@ -23,15 +27,7 @@ abstract public class BaseTest {
         // при этом, если мы хотим видеть своими глазами что происходит,
         // мы ставим true, если не хотим, false.
         Configuration.timeout = 30000;
-        Configuration.holdBrowserOpen = true;
-    }
-
-    /**
-     * ВЫполнение метода перед каждым запуком тестов
-     */
-    @BeforeEach
-    public void init(){
-        setUp();
+        Configuration.holdBrowserOpen = Boolean.parseBoolean(System.getProperty("holdBrowserOpen", "false")); // открытие бразера при запуске тестов локально. На проде отключено
     }
 
     /**

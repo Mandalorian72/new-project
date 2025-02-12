@@ -21,9 +21,9 @@ public class LoginTests extends BaseTest {
     void successfullLoginTest() {
         String secondComputer = TestValues.TEST_COMPUTER;
 
-        Cart product = new MainPage().authorization(ConfigProvider.LOGIN, ConfigProvider.PASSWORD)
+        CartPage product = new MainPage().openModalWindow().login(ConfigProvider.LOGIN, ConfigProvider.PASSWORD)
                 .goingToComputerPage()
-                .addProduct().addProduct().goingToCart();
+                .addProduct().goingToCart();
 
         Assertions.assertTrue(product.getSecondComputer().contains(TestValues.TEST_COMPUTER));
     }

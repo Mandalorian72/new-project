@@ -1,9 +1,8 @@
 package demoblaze;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import helpers.Helpers;
-import readProperties.ConfigProvider;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 public class ProductComputerCard {
@@ -19,13 +18,15 @@ public class ProductComputerCard {
     public ProductComputerCard addProduct() {
         btnSuccess.click();
         Helpers.closeAlert();
+        btnSuccess.click();
+        Helpers.closeAlert();
         return this; // если мы уберем this, т.е. возврат объекта этого же класса
         // то у нас исчезнет возможность вызывать цепочки методов.
         // как например в классе LoginTests стр. 21 mainPage.goingToComputerPage().addProduct().closeAlert();
     }
 
-    public Cart goingToCart() {
+    public CartPage goingToCart() {
         cart.click();
-        return new Cart();
+        return new CartPage();
     }
 }
