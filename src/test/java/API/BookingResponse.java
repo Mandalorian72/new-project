@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Authorization {
-    private String username;
-    private String password;
+public class BookingResponse {
+    private Integer bookingid;
+    private BookingRequest booking;
 }

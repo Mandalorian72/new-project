@@ -15,7 +15,6 @@ public class Specification {
                 .setContentType(ContentType.JSON)
                 .build();
                 // далее нам нужно указать какой нам ответ стоит ожидать
-
     }
 
     public static ResponseSpecification responseSpecOK200(){
@@ -24,8 +23,18 @@ public class Specification {
                 .build();
     }
 
+    public static ResponseSpecification responseSpec(int status){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(status)
+                .build();
+    }
+
     public static void installSpecification(RequestSpecification request, ResponseSpecification response) {
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
+    }
+
+    public static void installSpecification(ResponseSpecification responseStatusCode){
+        RestAssured.responseSpecification = responseStatusCode;
     }
 }
